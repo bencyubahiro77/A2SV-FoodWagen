@@ -36,7 +36,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
     watch,
     reset,
   } = useForm<FoodFormData>({
-    resolver: zodResolver(foodFormSchema),
+    resolver: zodResolver(foodFormSchema) as any,
   });
 
   const statusValue = watch("status");

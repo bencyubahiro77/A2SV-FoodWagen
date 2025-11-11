@@ -36,7 +36,7 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
     watch,
     reset,
   } = useForm<FoodFormData>({
-    resolver: zodResolver(foodFormSchema),
+    resolver: zodResolver(foodFormSchema) as any,
     defaultValues: {
       status: "Open Now",
       open: true,
@@ -128,7 +128,7 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
               min="0"
               max="5"
               placeholder="4.5"
-              {...register("rating")}
+              {...register("rating", { valueAsNumber: true })}
               className={errors.rating ? "border-red-500" : ""}
             />
             {errors.rating && (
