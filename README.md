@@ -47,7 +47,7 @@ A modern food delivery web application built with Next.js, featuring a beautiful
    
    Create a `.env` file in the root directory:
    ```bash
-   cp env.example .env
+   cp .env.example .env
    ```
    
    Add your API base URL:
