@@ -91,7 +91,7 @@ export default function Home() {
           {!loading && !error && filteredFoods.length === 0 && (
             <div className="text-center py-20">
               <p className="text-gray-500 text-lg">
-                No meals found. Try a different search.
+                No meals found. 
               </p>
             </div>
           )}

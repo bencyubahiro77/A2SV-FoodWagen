@@ -17,7 +17,7 @@ interface FoodCardWithActionsProps extends FoodCardProps {
 }
 
 export function FoodCard({ food, onEdit, onDelete }: FoodCardWithActionsProps) {
-  const isOpen = food.status === "Open Now";
+  const isOpen = food.status === "Open Now" || food.status === "Open";
   const price = food.Price ? parseFloat(food.Price.toString()) : 0;
   const rating = food.rating ? parseFloat(food.rating.toString()) : 0;
   const hasRestaurantName = food.restaurantName;

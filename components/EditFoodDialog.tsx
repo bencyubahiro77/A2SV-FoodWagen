@@ -43,6 +43,9 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
 
   useEffect(() => {
     if (food) {
+      // Normalize "Open" to "Open Now" for the form
+      const normalizedStatus = food.status === "Open" ? "Open Now" : (food.status || "Open Now");
+      
       reset({
         name: food.name,
         restaurantName: food.restaurantName || "",
@@ -50,7 +53,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
         image: food.image || "",
         logo: food.logo || "",
         Price: food.Price,
-        status: food.status || "Open Now",
+        status: normalizedStatus,
         open: food.open,
         avatar: food.avatar,
       });
@@ -64,7 +67,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
     try {
       await foodApi.updateFood(food.id, {
         ...data,
-        open: data.status === "Open Now",
+        open: data.status === "Open Now" || data.status === "Open",
       });
       toast.success("Meal updated successfully!");
       onOpenChange(false);
@@ -78,7 +81,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] max-h-[80vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[540px] max-h-[80vh] overflow-y-auto px-8">
         <DialogHeader>
           <DialogTitle className="text-brand-primary text-xl text-center">Edit Meal</DialogTitle>
         </DialogHeader>
@@ -183,7 +186,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
             </Label>
             <Select
               value={statusValue}
-              onValueChange={(value) => setValue("status", value as "Open Now" | "Closed")}
+              onValueChange={(value) => setValue("status", value as "Open Now" | "Open" | "Closed")}
             >
               <SelectTrigger className={`w-full ${errors.status ? "border-red-500" : ""}`}>
                 <SelectValue placeholder="Select status" />

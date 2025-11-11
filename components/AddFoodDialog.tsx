@@ -82,7 +82,7 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] max-h-[80vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[540px] max-h-[80vh] overflow-y-auto px-8">
         <DialogHeader>
           <DialogTitle className="text-brand-primary text-xl text-center">Add a meal</DialogTitle>
         </DialogHeader>
