@@ -23,7 +23,7 @@ export default function Home() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [selectedFood, setSelectedFood] = useState<FoodItem | null>(null);
 
-  const handleSearch = (query: string, deliveryType: "delivery" | "pickup") => {
+  const handleSearch = (query: string) => {
     searchFoods(query);
     setVisibleCount(8);
   };
@@ -60,7 +60,6 @@ export default function Home() {
       <Hero onSearch={handleSearch} />
 
       <main className="flex-1">
-        {/* Featured Meals Section */}
         <section className="container mx-auto px-12 md:px-16 lg:px-24 py-12">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">
             Featured Meals

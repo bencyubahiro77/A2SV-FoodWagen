@@ -3,10 +3,7 @@ import { Card } from "@/components/ui/card";
 export function FoodCardSkeleton() {
   return (
     <Card className="overflow-hidden animate-pulse">
-      {/* Image Skeleton */}
       <div className="h-48 w-full bg-gray-200" />
-
-      {/* Content Skeleton */}
       <div className="p-4">
         <div className="flex items-center gap-2 mb-3">
           <div className="w-10 h-10 rounded-md bg-gray-200" />

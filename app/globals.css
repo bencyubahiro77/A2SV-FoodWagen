@@ -44,9 +44,10 @@
 }
 
 :root {
-  /* FoodWagen Brand Colors - Easy to update */
   --brand-primary: linear-gradient(135deg, #FFBA26 0%, #FF9A0E 100%);
   --brand-primary-solid: #FFBA26;
+  --brand-secondary:#F17228;
+  --brand-secondary-solid: linear-gradient(135deg, #FF7A7A 0%, #F65900 100%);
   --brand-primary-hover: linear-gradient(135deg, #FFD04D 0%, #FFB035 100%);
   --brand-primary-light: #FFF4E0;
   --brand-success: #22c55e;

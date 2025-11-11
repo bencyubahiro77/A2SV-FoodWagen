@@ -37,7 +37,7 @@ export function Hero({ onSearch }: HeroProps) {
                   onClick={() => setDeliveryType("delivery")}
                   className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
                     deliveryType === "delivery"
-                      ? "bg-brand-primary/10 text-brand-primary"
+                      ? "bg-[#F172281A] text-brand-primary"
                       : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
@@ -48,7 +48,7 @@ export function Hero({ onSearch }: HeroProps) {
                   onClick={() => setDeliveryType("pickup")}
                   className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
                     deliveryType === "pickup"
-                      ? "bg-brand-primary/10 text-brand-primary"
+                      ? "bg-[#F172281A] text-brand-primary"
                       : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
@@ -72,9 +72,9 @@ export function Hero({ onSearch }: HeroProps) {
                 <Button
                   onClick={handleSearch}
                   className="text-white px-6 h-12 rounded-md"
-                  style={{ background: 'var(--brand-primary)' }}
+                  style={{ background: 'var( --brand-secondary-solid)' }}
                   onMouseEnter={(e) => e.currentTarget.style.background = 'var(--brand-primary-hover)'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = 'var(--brand-primary)'}
+                  onMouseLeave={(e) => e.currentTarget.style.background = 'var(--brand-secondary-solid)'}
                 >
                   Find Meal
                 </Button>
@@ -82,7 +82,6 @@ export function Hero({ onSearch }: HeroProps) {
             </div>
           </div>
 
-          {/* Right Image - Positioned at bottom */}
           <div className="relative hidden md:block h-full">
             <div className="absolute -bottom-8 right-0 w-[400px] h-[400px] translate-y-[30%]">
               <div className="relative w-full h-full">

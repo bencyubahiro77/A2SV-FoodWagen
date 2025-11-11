@@ -1,13 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import { Store } from "lucide-react";
+import { ImageWithFallbackProps } from "@/types/food";
 
-interface ImageWithFallbackProps extends Omit<ImageProps, "src"> {
-  src?: string | null;
-  fallbackIcon?: React.ReactNode;
-}
 
 export function ImageWithFallback({
   src,

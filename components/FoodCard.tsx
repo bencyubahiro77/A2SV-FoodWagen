@@ -23,7 +23,6 @@ export function FoodCard({ food, onEdit, onDelete }: FoodCardWithActionsProps) {
 
   return (
     <div className="overflow-hidden group">
-      {/* Food Image */}
       <div className="relative h-48 w-full overflow-hidden bg-gray-100">
         <ImageWithFallback
           src={food.image}
@@ -31,15 +30,14 @@ export function FoodCard({ food, onEdit, onDelete }: FoodCardWithActionsProps) {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        {/* Price Badge */}
-        <div className="absolute top-3 left-3 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-md" style={{background: 'var(--brand-primary)'}}>
+
+        <div className="absolute top-3 left-3 text-white px-3 py-1 rounded-full font-semibold text-sm shadow-md" style={{background: 'var( --brand-secondary)'}}>
           ${price.toFixed(2)}
         </div>
       </div>
 
       {/* Card Content */}
-      <div className="p-4">
-        {/* Restaurant Logo and Name */}
+      <div className="p-4 pl-0">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2 flex-1 min-w-0">
             {hasRestaurantInfo ? (
@@ -93,7 +91,6 @@ export function FoodCard({ food, onEdit, onDelete }: FoodCardWithActionsProps) {
           </DropdownMenu>
         </div>
 
-        {/* Status Badge */}
         <div className="mt-3">
           <Badge
             variant={isOpen ? "success" : "warning"}

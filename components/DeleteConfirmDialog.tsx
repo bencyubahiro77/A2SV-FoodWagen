@@ -12,14 +12,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
+import { DeleteConfirmDialogProps } from "@/types/food";
 
-interface DeleteConfirmDialogProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  foodId: string | null;
-  foodName: string;
-  onSuccess: () => void;
-}
 
 export function DeleteConfirmDialog({
   open,

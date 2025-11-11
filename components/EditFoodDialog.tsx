@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { foodFormSchema, type FoodFormData } from "@/lib/validations/food";
 import { foodApi } from "@/lib/api";
-import { FoodItem } from "@/types/food";
+import { EditFoodDialogProps } from "@/types/food";
 import {
   Dialog,
   DialogContent,
@@ -24,13 +24,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
-
-interface EditFoodDialogProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  food: FoodItem | null;
-  onSuccess: () => void;
-}
 
 export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFoodDialogProps) {
   const [isLoading, setIsLoading] = useState(false);

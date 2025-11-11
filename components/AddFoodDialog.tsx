@@ -23,12 +23,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
-
-interface AddFoodDialogProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  onSuccess: () => void;
-}
+import { AddFoodDialogProps } from "@/types/food";
 
 export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogProps) {
   const [isLoading, setIsLoading] = useState(false);

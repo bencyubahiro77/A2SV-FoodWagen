@@ -1,3 +1,5 @@
+import { ImageProps } from "next/image";
+
 export interface FoodItem {
   id: string;
   createdAt: string;
@@ -32,4 +34,34 @@ export interface HeroProps {
 
 export interface FoodCardProps {
   food: FoodItem;
+}
+
+export interface DeleteConfirmDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  foodId: string | null;
+  foodName: string;
+  onSuccess: () => void;
+} 
+
+export interface EditFoodDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  food: FoodItem | null;
+  onSuccess: () => void;
+}
+
+export interface AddFoodDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  onSuccess: () => void;
+}
+
+export interface HeaderProps {
+  onAddMeal: () => void;
+}
+
+export interface ImageWithFallbackProps extends Omit<ImageProps, "src"> {
+  src?: string | null;
+  fallbackIcon?: React.ReactNode;
 }

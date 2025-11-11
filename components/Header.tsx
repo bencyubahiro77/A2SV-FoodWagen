@@ -3,10 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Truck } from "lucide-react";
-
-interface HeaderProps {
-  onAddMeal: () => void;
-}
+import { HeaderProps } from "@/types/food";
 
 export function Header({ onAddMeal }: HeaderProps) {
   return (
