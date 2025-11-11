@@ -21,6 +21,15 @@ export const foodApi = {
     }
   },
 
+  searchFoods: async (query: string): Promise<FoodItem[]> => {
+    try {
+      const response = await apiClient.get<FoodItem[]>(`/Food?name=${encodeURIComponent(query)}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+
   getFoodById: async (id: string): Promise<FoodItem> => {
     try {
       const response = await apiClient.get<FoodItem>(`/Food/${id}`);

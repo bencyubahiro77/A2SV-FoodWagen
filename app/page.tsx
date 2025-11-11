@@ -113,7 +113,7 @@ export default function Home() {
                 <div className="flex justify-center mt-10">
                   <Button
                     onClick={handleLoadMore}
-                    className="text-white rounded-full px-6"
+                    className="text-white px-6"
                     style={{ background: 'var(--brand-primary)' }}
                     onMouseEnter={(e) => e.currentTarget.style.background = 'var(--brand-primary-hover)'}
                     onMouseLeave={(e) => e.currentTarget.style.background = 'var(--brand-primary)'}

@@ -44,8 +44,8 @@ export function DeleteConfirmDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-brand-primary text-xl">Delete Meal</DialogTitle>
-          <DialogDescription className="text-gray-600 pt-2">
+          <DialogTitle className="text-brand-primary text-xl text-center">Delete Meal</DialogTitle>
+          <DialogDescription className="text-gray-600 pt-2 text-center">
             Are you sure you want to delete <strong>{foodName}</strong>? This action cannot be reversed.
           </DialogDescription>
         </DialogHeader>

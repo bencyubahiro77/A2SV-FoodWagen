@@ -10,7 +10,6 @@ export function Footer() {
     <footer className="bg-[#212121] text-gray-300">
       <div className="container mx-auto px-12 md:px-16 lg:px-24 py-12">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 xl:gap-24 mb-8">
-          {/* Left Group: Company, Contact, Legal */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2 lg:gap-2 flex-1">
             {/* Company Section */}
             <div>
@@ -122,7 +121,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Right Group: Follow Us & Newsletter */}
           <div className="lg:min-w-[380px] xl:min-w-[420px]">
             <h3 className="text-white font-semibold text-base mb-4 uppercase tracking-wide">
               Follow Us

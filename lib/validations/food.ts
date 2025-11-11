@@ -7,8 +7,8 @@ export const foodFormSchema = z.object({
   image: z.string().url("Food image URL is required"),
   logo: z.string().url("Restaurant logo URL is required"),
   Price: z.string().min(1, "Price is required"),
-  status: z.enum(["Open", "Closed"]),
-  open: z.boolean().default(true),
+  status: z.enum(["Open Now", "Closed"]),
+  open: z.boolean(),
   avatar: z.string().optional(),
 });
 

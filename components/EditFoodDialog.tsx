@@ -50,7 +50,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
         image: food.image || "",
         logo: food.logo || "",
         Price: food.Price,
-        status: food.status || "Open",
+        status: food.status || "Open Now",
         open: food.open,
         avatar: food.avatar,
       });
@@ -64,7 +64,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
     try {
       await foodApi.updateFood(food.id, {
         ...data,
-        open: data.status === "Open",
+        open: data.status === "Open Now",
       });
       toast.success("Meal updated successfully!");
       onOpenChange(false);
@@ -80,7 +80,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-brand-primary text-xl">Edit Meal</DialogTitle>
+          <DialogTitle className="text-brand-primary text-xl text-center">Edit Meal</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-2">
@@ -183,13 +183,13 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
             </Label>
             <Select
               value={statusValue}
-              onValueChange={(value) => setValue("status", value as "Open" | "Closed")}
+              onValueChange={(value) => setValue("status", value as "Open Now" | "Closed")}
             >
               <SelectTrigger className={`w-full ${errors.status ? "border-red-500" : ""}`}>
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Open">Open</SelectItem>
+                <SelectItem value="Open Now">Open Now</SelectItem>
                 <SelectItem value="Closed">Closed</SelectItem>
               </SelectContent>
             </Select>

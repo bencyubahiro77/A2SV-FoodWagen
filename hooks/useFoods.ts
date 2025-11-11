@@ -27,22 +27,26 @@ export function useFoods(): UseFoodsReturn {
     fetchFoods();
   }, [fetchFoods]);
 
-  const searchFoods = useCallback(
-    (query: string) => {
+  const searchFoods = useCallback(async (query: string) => {
+    try {
+      setLoading(true);
+      setError(null);
+      
       if (!query.trim()) {
-        setFilteredFoods(foods);
-        return;
+        // If search query is empty, fetch all foods
+        const data = await foodApi.getAllFoods();
+        setFilteredFoods(data);
+      } else {
+        // Use the API to search for foods by name
+        const data = await foodApi.searchFoods(query);
+        setFilteredFoods(data);
       }
-
-      const filtered = foods.filter(
-        (food) =>
-          food.name.toLowerCase().includes(query.toLowerCase()) ||
-          food.restaurantName?.toLowerCase().includes(query.toLowerCase())
-      );
-      setFilteredFoods(filtered);
-    },
-    [foods]
-  );
+    } catch (err) {
+      setError("Failed to search meals. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   return {
     foods,

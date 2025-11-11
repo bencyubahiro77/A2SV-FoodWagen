@@ -11,7 +11,7 @@ export interface FoodItem {
   Price: string;
   restaurantName?: string;
   image?: string;
-  status?: "Open" | "Closed";
+  status?: "Open Now" | "Closed";
 }
 
 export interface SearchParams {

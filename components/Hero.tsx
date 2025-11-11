@@ -1,16 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, Truck, Store } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { HeroProps } from "@/types/food";
+import HeroImage from "@/app/heroImage.png"
 
 
 export function Hero({ onSearch }: HeroProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [deliveryType, setDeliveryType] = useState<"delivery" | "pickup">("delivery");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (onSearch) {
+        onSearch(searchQuery, deliveryType);
+      }
+    }, 500); 
+
+    return () => clearTimeout(timer);
+  }, [searchQuery, deliveryType]);
 
   const handleSearch = () => {
     if (onSearch) {
@@ -24,7 +35,7 @@ export function Hero({ onSearch }: HeroProps) {
         <div className="grid md:grid-cols-2 gap-8 items-center relative">
           {/* Left Content */}
           <div className="text-white space-y-6">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <h1 className="text-3xl  lg:text-4xl font-bold leading-tight">
               Are you starving?
             </h1>
             <p className="text-base md:text-lg text-white/90">

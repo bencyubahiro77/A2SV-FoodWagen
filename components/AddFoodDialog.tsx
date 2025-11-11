@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -38,19 +38,36 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
   } = useForm<FoodFormData>({
     resolver: zodResolver(foodFormSchema),
     defaultValues: {
-      status: "Open",
+      status: "Open Now",
       open: true,
     },
   });
 
   const statusValue = watch("status");
 
+  // Reset form when dialog is closed
+  useEffect(() => {
+    if (!open) {
+      reset({
+        name: "",
+        restaurantName: "",
+        rating: 0,
+        image: "",
+        logo: "",
+        Price: "",
+        status: "Open Now",
+        open: true,
+        avatar: "",
+      });
+    }
+  }, [open, reset]);
+
   const onSubmit = async (data: FoodFormData) => {
     setIsLoading(true);
     try {
       await foodApi.createFood({
         ...data,
-        open: data.status === "Open",
+        open: data.status === "Open Now",
       });
       toast.success("Meal created successfully!");
       reset();
@@ -67,7 +84,7 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-brand-primary text-xl">Add a meal</DialogTitle>
+          <DialogTitle className="text-brand-primary text-xl text-center">Add a meal</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-2">
@@ -170,13 +187,13 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
             </Label>
             <Select
               value={statusValue}
-              onValueChange={(value) => setValue("status", value as "Open" | "Closed")}
+              onValueChange={(value) => setValue("status", value as "Open Now" | "Closed")}
             >
               <SelectTrigger className={`w-full ${errors.status ? "border-red-500" : ""}`}>
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Open">Open</SelectItem>
+                <SelectItem value="Open Now">Open Now</SelectItem>
                 <SelectItem value="Closed">Closed</SelectItem>
               </SelectContent>
             </Select>
@@ -200,13 +217,26 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
                   Adding...
                 </>
               ) : (
-                "Add"
+                "Add Food"
               )}
             </Button>
             <Button
               type="button"
               variant="outline"
-              onClick={() => onOpenChange(false)}
+              onClick={() => {
+                reset({
+                  name: "",
+                  restaurantName: "",
+                  rating: 0,
+                  image: "",
+                  logo: "",
+                  Price: "",
+                  status: "Open Now",
+                  open: true,
+                  avatar: "",
+                });
+                onOpenChange(false);
+              }}
               disabled={isLoading}
               className="flex-1"
             >
