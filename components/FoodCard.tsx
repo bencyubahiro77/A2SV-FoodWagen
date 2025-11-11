@@ -19,6 +19,7 @@ interface FoodCardWithActionsProps extends FoodCardProps {
 export function FoodCard({ food, onEdit, onDelete }: FoodCardWithActionsProps) {
   const isOpen = food.status === "Open Now";
   const price = food.Price ? parseFloat(food.Price.toString()) : 0;
+  const rating = food.rating ? parseFloat(food.rating.toString()) : 0;
   const hasRestaurantName = food.restaurantName;
 
   return (
@@ -40,41 +41,30 @@ export function FoodCard({ food, onEdit, onDelete }: FoodCardWithActionsProps) {
       <div className="p-4 pl-0">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2 flex-1 min-w-0">
-            {hasRestaurantName ? (
-              <>
-                <div className="relative w-10 h-10 rounded-md overflow-hidden bg-gray-100 flex-shrink-0 flex items-center justify-center">
-                  {food.logo ? (
-                    <ImageWithFallback
-                      src={food.logo}
-                      alt={food.restaurantName || "Restaurant logo"}
-                      fill
-                      className="object-cover"
-                      fallbackIcon={<Store className="h-6 w-6 text-gray-400" />}
-                    />
-                  ) : (
-                    <Store className="h-6 w-6 text-gray-400" />
-                  )}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-gray-900 truncate text-sm mb-1">
-                    {food.name}
-                  </h3>
-                  <div className="flex items-center gap-1">
-                    <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                    <span className="text-xs font-medium text-gray-600">{food.rating?.toFixed(1) || "0.0"}</span>
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-gray-900 truncate text-sm mb-1">
-                  {food.name || "Unnamed Item"}
-                </h3>
-                <p className="text-xs text-gray-400 italic">
-                  Restaurant info unavailable
-                </p>
+            {(food.logo || hasRestaurantName) && (
+              <div className="relative w-10 h-10 rounded-md overflow-hidden bg-gray-100 flex-shrink-0 flex items-center justify-center">
+                {food.logo ? (
+                  <ImageWithFallback
+                    src={food.logo}
+                    alt={food.restaurantName || "Restaurant logo"}
+                    fill
+                    className="object-cover"
+                    fallbackIcon={<Store className="h-6 w-6 text-gray-400" />}
+                  />
+                ) : (
+                  <Store className="h-6 w-6 text-gray-400" />
+                )}
               </div>
             )}
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-gray-900 truncate text-sm mb-1">
+                {food.name || "Unnamed Item"}
+              </h3>
+              <div className="flex items-center gap-1">
+                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                <span className="text-xs font-medium text-gray-600">{rating.toFixed(1)}</span>
+              </div>
+            </div>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

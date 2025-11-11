@@ -65,9 +65,8 @@ A modern food delivery web application built with Next.js, featuring a beautiful
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 6. **deployed version**
-   ```
+   
    https://food-wagen-nine.vercel.app/
-   ```
 
 ## Available Scripts
 
