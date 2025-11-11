@@ -62,7 +62,7 @@ export default function Home() {
       <main className="flex-1">
         <section className="container mx-auto px-12 md:px-16 lg:px-24 py-12">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">
-            Featured Meals
+            Featured Restaurants
           </h2>
 
           {loading && (

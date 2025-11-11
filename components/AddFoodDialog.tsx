@@ -82,7 +82,7 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[425px] max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-brand-primary text-xl text-center">Add a meal</DialogTitle>
         </DialogHeader>
@@ -93,7 +93,7 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
             </Label>
             <Input
               id="name"
-              placeholder="Food name"
+              placeholder="Enter Food name"
               {...register("name")}
               className={errors.name ? "border-red-500" : ""}
             />
@@ -214,7 +214,7 @@ export function AddFoodDialog({ open, onOpenChange, onSuccess }: AddFoodDialogPr
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Adding...
+                  Adding Food...
                 </>
               ) : (
                 "Add Food"

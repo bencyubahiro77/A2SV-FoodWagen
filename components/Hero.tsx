@@ -97,7 +97,7 @@ export function Hero({ onSearch }: HeroProps) {
             <div className="absolute -bottom-8 right-0 w-[400px] h-[400px] translate-y-[30%]">
               <div className="relative w-full h-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80"
+                  src={HeroImage}
                   alt="Delicious food"
                   fill
                   className="object-cover rounded-full shadow-2xl"

@@ -78,7 +78,7 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-[425px] max-h-[80vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-brand-primary text-xl text-center">Edit Meal</DialogTitle>
         </DialogHeader>
@@ -210,10 +210,10 @@ export function EditFoodDialog({ open, onOpenChange, food, onSuccess }: EditFood
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Saving...
+                  Updating Food...
                 </>
               ) : (
-                "Save"
+                "Update Food"
               )}
             </Button>
             <Button
