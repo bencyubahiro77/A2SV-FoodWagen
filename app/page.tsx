@@ -75,16 +75,7 @@ export default function Home() {
 
           {error && (
             <div className="text-center py-20">
-              <p className="text-red-500 mb-4">{error}</p>
-              <Button
-                onClick={refetch}
-                className="text-white"
-                style={{ backgroundColor: 'var(--brand-primary)' }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--brand-primary-hover)'}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--brand-primary)'}
-              >
-                Try Again
-              </Button>
+              <p className="mb-4">{error}</p>
             </div>
           )}
 

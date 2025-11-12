@@ -17,7 +17,7 @@ export function useFoods(): UseFoodsReturn {
       setFoods(data);
       setFilteredFoods(data);
     } catch (err) {
-      setError("Failed to load meals. Please try again later.");
+      setError("No Meals Found");
     } finally {
       setLoading(false);
     }
@@ -42,7 +42,7 @@ export function useFoods(): UseFoodsReturn {
         setFilteredFoods(data);
       }
     } catch (err) {
-      setError("Failed to search meals. Please try again later.");
+      setError("No Meals Found");
     } finally {
       setLoading(false);
     }

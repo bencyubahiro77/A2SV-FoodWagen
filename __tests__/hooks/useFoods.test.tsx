@@ -69,7 +69,7 @@ describe('useFoods Hook - API Mocking Tests', () => {
       expect(result.current.loading).toBe(false)
     })
 
-    expect(result.current.error).toBe('Failed to load meals. Please try again later.')
+    expect(result.current.error).toBe('No Meals Found')
     expect(result.current.foods).toEqual([])
   })
 })
